@@ -14,7 +14,6 @@ public class Quiz {
     private String name;
     private int courseId;
 
-//    private List<Questions> qn;
 
     public Quiz() {
     }

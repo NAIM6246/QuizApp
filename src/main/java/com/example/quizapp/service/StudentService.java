@@ -23,7 +23,7 @@ public class StudentService {
     public  Student login(StudentLogin studentLogin) {
         Student student = studentRepository.findByEmail(studentLogin.getEmail());
 
-        if(student.getPass() == studentLogin.getPass()) {
+        if(student!= null && student.getPass() == studentLogin.getPass()) {
             return  student;
         }
         return  null;
@@ -36,9 +36,5 @@ public class StudentService {
 
     public List<Student> getAllStudents(){
         return  studentRepository.findAll();
-    }
-
-    public List<Student> getStudentsByIds(){
-        return studentRepository.findAllById(List.of(1,2));
     }
 }

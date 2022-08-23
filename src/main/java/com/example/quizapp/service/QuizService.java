@@ -22,7 +22,7 @@ public class QuizService {
     public QuizDto createQuiz(QuizDto data) {
         Quiz quiz= new Quiz(data.getName(), data.getCourseId());
         Quiz createdQuiz = quizRepository.save(quiz);
-        //todo
+
         List<Question> submittedQuestions = data.getQuestions();
         for(int i=0;i<submittedQuestions.size();i++){
             submittedQuestions.get(i).setQuizId(createdQuiz.getId());
@@ -34,7 +34,6 @@ public class QuizService {
     }
 
     public QuizDto getQuizById(int id) {
-        //todo
         Quiz quiz = quizRepository.findById(id).orElse(null);
         List<Question> questions = questionsRepository.findByQuizId(id);
 
